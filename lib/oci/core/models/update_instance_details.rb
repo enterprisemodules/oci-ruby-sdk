@@ -20,6 +20,8 @@ module OCI
     # Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     #
     # @return [Hash<String, Hash<String, Object>>]
+    attr_accessor :extended_metadata
+
     attr_accessor :defined_tags
 
     # A user-friendly name. Does not have to be unique, and it's changeable.
@@ -92,6 +94,7 @@ module OCI
       {
         # rubocop:disable Style/SymbolLiteral
         'capacity_reservation_id': :'capacityReservationId',
+        'extended_metadata': :'extendedMetadata',
         'defined_tags': :'definedTags',
         'display_name': :'displayName',
         'freeform_tags': :'freeformTags',
@@ -111,6 +114,7 @@ module OCI
       {
         # rubocop:disable Style/SymbolLiteral
         'capacity_reservation_id': :'String',
+        'extended_metadata': :'Hash<String, Hash<String, Object>>',
         'defined_tags': :'Hash<String, Hash<String, Object>>',
         'display_name': :'String',
         'freeform_tags': :'Hash<String, String>',
@@ -209,6 +213,12 @@ module OCI
       raise 'You cannot provide both :availabilityConfig and :availability_config' if attributes.key?(:'availabilityConfig') && attributes.key?(:'availability_config')
 
       self.availability_config = attributes[:'availability_config'] if attributes[:'availability_config']
+
+      self.extended_metadata = attributes[:'extended_metadata'] if attributes[:'extended_metadata']
+
+      raise 'You cannot provide both :extendedMetadata and :extended_metadata' if attributes.key?(:'extendedMetadata') && attributes.key?(:'extended_metadata')
+
+      self.extended_metadata = attributes[:'extendedMetadata'] if attributes[:'extendedMetadata']
     end
     # rubocop:enable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/PerceivedComplexity
     # rubocop:enable Metrics/MethodLength, Layout/EmptyLines, Style/SymbolLiteral
